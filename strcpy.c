@@ -7,7 +7,6 @@ void mystrcpy(char *dest, const char *src) {
     for (i=0; src[i] != '\0'; i++) {
         dest[i] = src[i];
     }
-    dest[i] = '\0';
 }
 
 int main(int argc, char *argv[])
@@ -19,7 +18,7 @@ int main(int argc, char *argv[])
     }
 
     char *src = argv[1];
-    char *dest = malloc(strlen(src) + 1);
+    char *dest = malloc(strlen(src));
 
     mystrcpy(dest, src);
 
