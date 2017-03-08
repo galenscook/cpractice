@@ -7,6 +7,7 @@ void mystrcpy(char *dest, const char *src) {
     for (i=0; src[i] != '\0'; i++) {
         dest[i] = src[i];
     }
+    dest[i];
 }
 
 int main(int argc, char *argv[])
@@ -18,7 +19,8 @@ int main(int argc, char *argv[])
     }
 
     char *src = argv[1];
-    char *dest = malloc(strlen(src));
+    // Use calloc for things you aren't going to completely overwrite to avoid crazy memory ish
+    char *dest = calloc(strlen(src) + 1);
 
     mystrcpy(dest, src);
 
