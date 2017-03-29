@@ -2,4 +2,4 @@ CFLAGS=-Wall -g
 
 
 clean:
-	rm -f strcpy
+	rm -f strcpy linkedlist
