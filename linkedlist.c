@@ -23,18 +23,11 @@ List *newList(int value) {
 	first->next = NULL;
 
 	return first;
-
 }
 
-
-
 void add(List *list, int value) {
-	List *newNode = NULL;
-	List * current = list;
-
-	newNode = calloc(1, sizeof(List));
-	newNode->value = value;
-	newNode->next = NULL;
+	List *current = list;
+	List *newNode = newList(value);
 
 	while (current->next != NULL) {
 		current = current->next;
@@ -45,7 +38,7 @@ void add(List *list, int value) {
 
 // returns the first element of the list (“car” in lisp)
 int *head(List *list) {
-	return &list -> value;
+	return &list->value;
 }
 
 // returns a new list without the head (“cdr” in lisp)
