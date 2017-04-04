@@ -58,19 +58,29 @@ int len(List *list) {
 	return length;
 }
 
+void cleanUp(List *list) {
+	List *current = list;
+	while (current->next != NULL) {
+		List *temp = current;
+		current = current->next;
+		free(temp);
+	}
+}
+
 int main(int argc, char *argv[]) {
 
-	List myList = *newList(5);
-	printf("This is the length of my list : %d\n", len(&myList));
-	add(&myList, 4);
-	printf("This is the length of my list : %d\n", len(&myList));
-	add(&myList, 17);
-	printf("This is the length of my list : %d\n", len(&myList));
-	List *tailOfList = tail(&myList);
+	List *myList = newList(5);
+	printf("This is the length of my list : %d\n", len(myList));
+	add(myList, 4);
+	printf("This is the length of my list : %d\n", len(myList));
+	add(myList, 17);
+	printf("This is the length of my list : %d\n", len(myList));
+	List *tailOfList = tail(myList);
 
-	printf("This is the length of my list : %d\n", len(&myList));
+	printf("This is the length of my list : %d\n", len(myList));
 	printf("This is the length of the tail of list : %d\n", len(tailOfList));
 
+	cleanUp(myList);
 	return 0;
 }
 
